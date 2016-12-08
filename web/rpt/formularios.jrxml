@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formularios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13252f8d-cc35-49ca-b182-6d6ea14b9650">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HASTA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from formularios, menus where menus.id_menu=formularios.id_menu and id_formulario >=  $P{DESDE} and id_formulario <= $P{HASTA}]]>
+	</queryString>
+	<field name="id_formulario" class="java.lang.Integer"/>
+	<field name="nombre_formulario" class="java.lang.String"/>
+	<field name="codigo_formulario" class="java.lang.String"/>
+	<field name="id_menu" class="java.lang.Integer"/>
+	<field name="nombre_menu" class="java.lang.String"/>
+	<field name="codigo_menu" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="47" width="555" height="20" uuid="93aa4a4c-b5a4-4b0b-a265-2837fe46aad4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="14"/>
+				</textElement>
+				<text><![CDATA[LISTA DE FORMULARIOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="2" width="100" height="20" uuid="2c1c7dce-1b9f-4c52-b9de-f6c8a0abe38a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="0" width="100" height="20" uuid="4a7ba896-290a-4fb4-828f-b61629eb0229"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="2" width="100" height="20" uuid="0641eba3-7422-4c8d-8f40-9454fc769d80"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="2" width="100" height="20" uuid="e8d58411-150a-47b9-a151-db3c4be42710"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[NOMBRE MENU]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="2" width="100" height="20" uuid="1d92700f-2913-47cd-be54-2330ef6f395d"/>
+				<textFieldExpression><![CDATA[$F{id_formulario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="2" width="100" height="20" uuid="e9962bc4-d6c3-4a70-b304-e2e93542a251"/>
+				<textFieldExpression><![CDATA[$F{nombre_formulario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="2" width="100" height="20" uuid="30f788aa-050f-40ee-81b0-d6121424bc36"/>
+				<textFieldExpression><![CDATA[$F{codigo_formulario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="2" width="100" height="20" uuid="7753a46d-03bc-41ef-b548-2bb5e8aa6ef8"/>
+				<textFieldExpression><![CDATA[$F{nombre_menu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
